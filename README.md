@@ -14,7 +14,7 @@ $ bower install
 
 ## Configuration
 
-Use `config.js` to manage shared folders.
+Edit `config.js` to manage shared folders.
 
 ```js
 exports.shares = 
@@ -34,4 +34,4 @@ $ node server.js [port]
 
 ## License
 
-Licensed under the MIT License
+Licensed under the MIT License.
