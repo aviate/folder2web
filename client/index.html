@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>folder2web</title>
+	<link rel="stylesheet" href="/client/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/client/AlertifyJS/build/css/alertify.min.css" />
+	<link rel="stylesheet" href="/client/AlertifyJS/build/css/themes/default.min.css" />
+	<link rel="stylesheet" href="/client/AlertifyJS/build/css/themes/semantic.min.css" />
+	<link rel="stylesheet" href="/client/AlertifyJS/build/css/themes/bootstrap.min.css" />
+	<link rel="stylesheet" href="/style.css" />
+	<script src="/client/moment/min/moment.min.js"></script>
+	<script src="/client/jquery/dist/jquery.min.js"></script>
+	<script src="/client/AlertifyJS/build/alertify.min.js"></script>
+	<script src="/client/socket.io-client/socket.io.js"></script>
+	<script src="/client/angularjs/angular.min.js"></script>
+	<script src="/controller.js"></script>
+	<script src="/uploader.js" defer></script>
+</head>
+<body ng-app="folder2web" ng-controller="explorer">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#" ng-click="magic()">
+					<span class="glyphicon glyphicon-glass" id="logo"></span>
+					folder2web
+				</a>
+			</div>
+
+			<div class="navbar-right" ng-if="currentDir != ''">
+				<input type="file" id="uploadbtn" multiple onchange="upload()" />
+				<button class="btn btn-primary navbar-btn" onclick="document.getElementById('uploadbtn').click()">
+					<span class="glyphicon glyphicon-arrow-up"></span>
+					Upload files
+				</button>
+				<button class="btn btn-primary navbar-btn" ng-click="createDir()">
+					<span class="glyphicon glyphicon-plus"></span>
+					Create folder
+				</button>
+			</div>
+
+			<ol class="breadcrumb navbar-left" ng-if="currentDir != ''">
+				<li ng-repeat="x in subfolders">
+					<span ng-if="x.active">{{x.name}}</span>
+					<a ng-if="!x.active" href="#" ng-click="openDir(x.dir)">{{x.name}}</a>
+				</li>
+			</ol>
+		</div>
+	</nav>
+
+	<div id="main">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th colspan="2">Name</th>
+					<th class="number">Size</th>
+					<th class="number">Modified</th>
+					<th class="number">Created</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in folders" ng-click="openDir(x)" class="select folder">
+					<td width="20">
+						<span ng-if="x.protected" class="glyphicon glyphicon-lock"></span>
+						<span ng-if="!x.protected" class="glyphicon glyphicon-folder-open"></span>
+					</td>
+					<td ng-bind="x.name" colspan="4"></td>
+				</tr>
+				<tr ng-repeat="x in files" ng-click="download(x)" class="select file">
+					<td>
+						<span class="{{'glyphicon ' + (x.name | icon)}}">
+						</span>
+					</td>				    
+					<td ng-bind="x.name" width="40%"></td>
+					<td class="number">{{x.size | byte}}</td>
+					<td class="number">{{x.modified | date}}</td>
+					<td class="number">{{x.created | date}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="dropfiles">
+		<div class="shade-bg" id="dropbg"></div>
+		<div id="dropzone">
+			<span>Drop your files here.</span>
+		</div>
+	</div>
+</body>
+</html>

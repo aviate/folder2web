@@ -1,0 +1,12 @@
+{
+	"name": "folder2web",
+	"version": "0.1.0",
+	"dependencies": {
+		"jquery": "~2.1.1",
+		"angularjs": "~1.2.22",
+		"socket.io-client": "~1.0.6",
+		"moment": "~2.8.1",
+		"bootstrap": "~3.2.0",
+		"AlertifyJS": "https://github.com/MohammadYounes/AlertifyJS.git#~0.2.0"
+	}
+}

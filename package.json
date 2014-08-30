@@ -1,0 +1,22 @@
+{
+	"version": "0.1.0",
+	"name": "folder2web",
+	"description": "folder2web is a small Node.js application that straightforwardly shares folders over the web. Changes on the filesystem are displayed immediately in the modern web interface. Files can be uploaded (using drag-and-drop) and downloaded.",
+	"author": "Eric Heiden <eric@eric-heiden.de>",
+	"dependencies": {
+		"express": "~3.16.9",
+		"optimist": "~0.1.0",
+		"socket.io": "~1.0",
+		"busboy": "~0.2.8",
+		"body-parser": "~1.6.5",
+		"fsmonitor": "~0.2.4"
+	},
+	"script": {
+		"start": "node server.js"
+	},
+	"main": "server.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aviate/folder2web.git"
+	}
+}
