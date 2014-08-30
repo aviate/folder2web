@@ -28,8 +28,10 @@ exports.shares =
 
 ## Start server
 
+By default, the server will listen on port 8080.
+
 ```sh
-$ node server.js [port]
+$ node server.js [--port <portnumber>]
 ```
 
 ## License
