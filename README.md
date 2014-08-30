@@ -1,5 +1,3 @@
-[![GitHub version](https://badge.fury.io/gh/aviate%2Ffolder2web.svg)](http://badge.fury.io/gh/aviate%2Ffolder2web)
-
 folder2web
 ==========
 
