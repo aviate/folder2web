@@ -5,11 +5,10 @@ folder2web is a small Node.js application that straightforwardly shares folders 
 
 ## Installation
 
-Install all dependencies using [npm](https://www.npmjs.org) and [bower](http://bower.io):
+To install folder2web you need [npm](https://www.npmjs.org) and [bower](http://bower.io). Then issue the following command:
 
 ```sh
 $ npm install
-$ bower install
 ```
 
 ## Configuration
