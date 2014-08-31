@@ -11,8 +11,9 @@
 		"body-parser": "~1.6.5",
 		"fsmonitor": "~0.2.4"
 	},
-	"script": {
-		"start": "node server.js"
+	"scripts": {
+		"start": "node server.js",
+		"postinstall": "bower install"
 	},
 	"main": "server.js",
 	"repository": {
